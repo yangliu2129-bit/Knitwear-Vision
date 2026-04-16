@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Knitting Pattern Calculator — Custom Sweater Patterns by Gauge & Fit | Knitwear Vision</title>
-  <meta name="description" content="Generate a complete, custom knitting pattern for your sweater in seconds. Enter your bust measurement and gauge — get row-by-row instructions for drop shoulder, raglan, or set-in sleeves in any stitch pattern.">
-  <meta name="keywords" content="knitting pattern calculator, free sweater pattern, raglan pattern generator, drop shoulder knitting, knitting gauge calculator, custom knitwear pattern">
-  <meta property="og:title" content="Free Knitting Pattern Calculator — Knitwear Vision">
-  <meta property="og:description" content="Your bust measurement + your gauge = a complete custom sweater pattern. Drop shoulder, raglan, set-in sleeves. Free, instant, printable.">
-  <meta property="og:type" content="website">
+  <title>Knitwear Pattern Studio</title>
   <link rel="icon" href="yarnball.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -53,15 +48,6 @@
     .section-title { font-family: var(--font-display); font-size: clamp(36px,4vw,58px); font-weight: 300; color: var(--dark); margin-bottom: 24px; line-height: 1.15; }
     .section-body { font-size: 15px; color: var(--warm-gray); max-width: 560px; margin: 0 auto; line-height: 1.8; font-weight: 300; }
     .accent-divider { width: 48px; height: 1px; background: var(--accent); margin: 40px auto; opacity: 0.6; }
-    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; max-width: 860px; margin: 48px auto 0; text-align: left; }
-    .how-card { background: var(--white); border-radius: 12px; padding: 28px 24px; border: 1px solid rgba(181,137,106,0.15); }
-    .how-number { font-family: var(--font-display); font-size: 36px; font-weight: 300; color: var(--accent); opacity: 0.5; margin-bottom: 12px; line-height: 1; }
-    .how-title { font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--dark); margin-bottom: 10px; }
-    .how-body { font-size: 13px; color: var(--warm-gray); line-height: 1.7; font-weight: 300; }
-    .seo-strip { background: var(--off-white); border-top: 1px solid rgba(181,137,106,0.15); padding: 48px; max-width: 860px; margin: 60px auto 0; border-radius: 12px; text-align: left; }
-    .seo-strip h2 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 14px; }
-    .seo-strip p { font-size: 13px; color: var(--warm-gray); line-height: 1.8; font-weight: 300; margin-bottom: 10px; }
-    .seo-strip p:last-child { margin-bottom: 0; }
 
     /* CALCULATOR SECTION */
     #calculator { background: var(--off-white); padding: 80px 48px; }
@@ -127,8 +113,6 @@
       .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--dark); align-items: center; justify-content: center; gap: 32px; z-index: 99; }
       .nav-links.open a { font-size: 16px; }
       #where-creativity-sparks { padding: 80px 24px 60px; }
-      .how-grid { grid-template-columns: 1fr; gap: 16px; }
-      .seo-strip { padding: 32px 24px; }
       #calculator { padding: 60px 24px; }
       footer { padding: 28px 24px; }
     }
@@ -138,10 +122,10 @@
 
   <!-- NAVIGATION -->
   <nav id="navbar">
-    <a href="#" class="nav-logo">Knitwear Vision</a>
+    <a href="#" class="nav-logo">Knitwear Studio</a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#">Home</a></li>
-      <li><a href="#where-creativity-sparks">About</a></li>
+      <li><a href="sweater-analyser.html">Analyse Photo</a></li>
       <li><a href="#calculator">Calculator</a></li>
       <li><a href="#" style="opacity:0.4;pointer-events:none;">Contact</a></li>
     </ul>
@@ -156,46 +140,22 @@
       <div class="hero-subtitle">Design Studio for Knitwear Patterns</div>
       <h1 class="hero-title">Design Your Own<br>Knitwear Pattern</h1>
       <a href="#calculator" class="hero-btn" aria-label="Build your sweater pattern">Build Your Sweater</a>
+      <a href="sweater-analyser.html" class="hero-btn" style="margin-left:12px;" aria-label="Analyse a sweater photo">Analyse a Photo</a>
       <div class="hero-note">Style + Gauge + Yarn → instant knitting instructions</div>
     </div>
   </div>
 
-  <!-- WHERE CREATIVITY SPARKS -->
-  <section id="where-creativity-sparks" aria-label="About the Knitting Pattern Calculator">
-    <div class="section-label">Where Creativity Sparks</div>
-    <h2 class="section-title">Your measurements.<br>Your pattern. Your sweater.</h2>
-    <p class="section-body">This free knitting pattern calculator takes your actual bust measurement and your swatch gauge and generates a complete, row-by-row sweater pattern — tailored precisely to your body and your yarn. No standard sizes. No guessing. Just your numbers, turned into real knitting instructions in seconds.</p>
-
+  <!-- AI ANALYSER TEASER -->
+  <section id="where-creativity-sparks">
+    <div class="section-label">New — AI Image Analysis</div>
+    <h2 class="section-title">Upload a Photo.<br>Get a Pattern.</h2>
+    <p class="section-body">Photograph any sweater you love and our AI will read the construction, stitch pattern, neckline, sleeve shape, and yarn weight — then hand those values straight to the calculator so you can knit it yourself.</p>
     <div class="accent-divider"></div>
-
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-number">01</div>
-        <div class="how-title">Choose your style</div>
-        <div class="how-body">Pick your unit, fit style (oversized, classic, or fitted), construction method (drop shoulder, raglan, or set-in), and stitch pattern. Each choice shapes the calculations and instructions that follow.</div>
-      </div>
-      <div class="how-card">
-        <div class="how-number">02</div>
-        <div class="how-title">Enter your measurements</div>
-        <div class="how-body">Enter your bust circumference and your gauge — stitches per inch or per 10 cm from a blocked swatch. The calculator uses these two numbers to derive every stitch count, shaping step, and length in the pattern.</div>
-      </div>
-      <div class="how-card">
-        <div class="how-number">03</div>
-        <div class="how-title">Get your complete pattern</div>
-        <div class="how-body">Instantly receive a full pattern including a schematic, stitch counts, construction overview, and detailed row-by-row instructions — ready to print or follow on screen.</div>
-      </div>
-    </div>
-
-    <div class="seo-strip">
-      <h2>About this pattern calculator</h2>
-      <p>The Knitwear Vision pattern calculator is an AI-assisted tool built to help knitters of all levels generate accurate, construction-aware sweater patterns from scratch. The calculator supports three sweater constructions: <strong>drop shoulder</strong> (Top-down, back-first, drop shoulder-style with shoulder short rows and waist shaping), <strong>raglan</strong> (top-down seamless with 5-pair German Short Row neck shaping and body-only increase rounds for larger sizes), and <strong>set-in sleeves</strong> (flat and seamed, suitable for structured garments).</p>
-      <p>Every pattern adapts to your gauge automatically — whether you are working in chunky yarn at 3 stitches per inch or fine lace weight at 8 stitches per 10 cm. Ease is calculated natively in your chosen unit: inches or centimetres. Stitch patterns supported include garter, 1×1 rib, and cable (with automatic 10% draw-in compensation).</p>
-      <p>The construction logic is modelled on professional knitwear design principles, including progressive short row neck shaping inspired by published raglan patterns, and sloped shoulder shaping inspired by seamless drop shoulder patterns from leading independent designers. This calculator is ideal for knitters who want to move beyond standard sizes and create garments that fit their actual body.</p>
-    </div>
+    <a href="sweater-analyser.html" style="display:inline-block;margin-top:8px;padding:14px 36px;border:1px solid var(--accent);color:var(--dark);text-decoration:none;border-radius:2px;font-size:11px;letter-spacing:3px;text-transform:uppercase;transition:all 0.3s ease;font-weight:400;" onmouseover="this.style.background='var(--dark)';this.style.color='var(--white)'" onmouseout="this.style.background='';this.style.color='var(--dark)'" aria-label="Try the sweater analyser">Try the Analyser →</a>
   </section>
 
   <!-- PATTERN CALCULATOR -->
-  <section id="calculator" aria-label="Knitting Pattern Generator">
+  <section id="calculator">
     <div class="calc-inner">
       <h1>Knitting Pattern Calculator</h1>
       <p class="calc-subtitle">Style · Gauge · Yarn → instant knitting instructions</p>
@@ -226,11 +186,11 @@
       <div class="option-group">
         <div class="option-item">
           <button id="btn-drop" class="construction-btn" onclick="selectConstruction(this,'drop')">Drop shoulder</button>
-          <div class="note" id="note-drop">Top-down, sloped shoulders, waist shaping. Boxy &amp; relaxed.</div>
+          <div class="note" id="note-drop">Boxy, no armhole shaping. Body in the round, sleeves picked up top-down.</div>
         </div>
         <div class="option-item">
           <button class="construction-btn" onclick="selectConstruction(this,'raglan')">Raglan</button>
-          <div class="note">Diagonal shaping lines underarm to neck. Seamless, top-down.</div>
+          <div class="note">Diagonal shaping lines underarm to neck. Worked in the round.</div>
         </div>
         <div class="option-item">
           <button class="construction-btn" onclick="selectConstruction(this,'set-in')">Set-in sleeves</button>
@@ -284,10 +244,6 @@
             <div class="metric"><div class="metric-label">Back panel</div><div class="metric-value" id="m-back">—</div><div class="metric-unit">stitches</div></div>
           </div>
           <hr class="divider-line">
-          <!-- Construction instructions now ABOVE abbreviations -->
-          <div class="section-heading">Construction instructions</div>
-          <div class="construction-note" id="construction-note"></div>
-          <hr class="divider-line">
           <div class="section-heading">Abbreviations</div>
           <div class="abbrev-block" id="abbrev-block"></div>
           <hr class="divider-line">
@@ -296,6 +252,9 @@
           <hr class="divider-line">
           <div class="section-heading">Row-by-row instructions</div>
           <div class="rr-section" id="row-by-row"></div>
+          <hr class="divider-line">
+          <div class="section-heading">Construction instructions</div>
+          <div class="construction-note" id="construction-note"></div>
         </div>
       </div>
     </div>
@@ -303,7 +262,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Knitwear Vision &nbsp;·&nbsp; <a href="#" style="opacity:0.4;pointer-events:none;">Contact</a> &nbsp;·&nbsp; <a href="#" style="opacity:0.4;pointer-events:none;">Instagram</a></p>
+    <p>© 2026 Knitwear Studio &nbsp;·&nbsp; <a href="#" style="opacity:0.4;pointer-events:none;">Contact</a> &nbsp;·&nbsp; <a href="#" style="opacity:0.4;pointer-events:none;">Instagram</a></p>
   </footer>
 
   <script>
@@ -314,6 +273,42 @@
     const navLinks  = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── Pre-fill calculator from Analyser (localStorage handoff) ──
+    window.addEventListener('load', () => {
+      try {
+        const saved = localStorage.getItem('knitwear_analyser_params');
+        if (!saved) return;
+        const p = JSON.parse(saved);
+        localStorage.removeItem('knitwear_analyser_params');
+        // Pre-select unit (default inches)
+        var unitBtn = document.querySelector('.unit-btn');
+        if (unitBtn) selectUnit(unitBtn, 'in');
+        // Pre-select style
+        if (p.style) {
+          var sBtn = document.querySelector('.style-btn[onclick*="' + p.style + '"]');
+          if (sBtn) selectStyle(sBtn, p.style);
+        }
+        // Pre-select construction
+        if (p.construction) {
+          var cBtn = document.querySelector('.construction-btn[onclick*="' + p.construction + '"]');
+          if (cBtn && !cBtn.disabled) selectConstruction(cBtn, p.construction);
+        }
+        // Pre-select stitch
+        if (p.stitch) {
+          var stBtn = document.querySelector('.stitch-btn[onclick*="' + p.stitch + '"]');
+          if (stBtn) selectStitch(stBtn, p.stitch);
+        }
+        // Show a banner
+        var banner = document.createElement('div');
+        banner.style.cssText = 'background:var(--cream);border:1px solid var(--accent);border-radius:8px;padding:12px 18px;font-size:13px;color:var(--dark);margin-bottom:20px;text-align:center;';
+        banner.innerHTML = '✓ <strong>Values pre-filled from your photo analysis.</strong> Add your bust measurement and gauge to generate your pattern.';
+        var calcInner = document.querySelector('.calc-inner');
+        if (calcInner) calcInner.insertBefore(banner, calcInner.firstChild);
+        // Scroll to calculator smoothly
+        document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+      } catch(e) { /* silently ignore if localStorage unavailable */ }
+    });
 
     // ── Calculator ──
     var selectedStyle = '', selectedConstruction = '', selectedStitch = '', selectedUnit = 'in';
@@ -402,7 +397,7 @@
     function buildAbbrev(stitch, construction) {
       var base='<b>st(s)</b> stitch(es) &nbsp;·&nbsp; <b>rnd(s)</b> round(s) &nbsp;·&nbsp; <b>k</b> knit &nbsp;·&nbsp; <b>p</b> purl &nbsp;·&nbsp; <b>RS</b> right side &nbsp;·&nbsp; <b>WS</b> wrong side &nbsp;·&nbsp; <b>BOR</b> beginning of round &nbsp;·&nbsp; <b>pm</b> place marker &nbsp;·&nbsp; <b>sm</b> slip marker &nbsp;·&nbsp; <b>k2tog</b> knit 2 together &nbsp;·&nbsp; <b>ssk</b> slip, slip, knit &nbsp;·&nbsp; <b>M1R</b> make 1 right &nbsp;·&nbsp; <b>M1L</b> make 1 left &nbsp;·&nbsp; <b>M1Rp / M1Lp</b> make 1 purlwise';
       if(stitch==='cable') base+=' &nbsp;·&nbsp; <b>CN</b> cable needle &nbsp;·&nbsp; <b>C6F</b> 3/3 left cross: slip 3 to CN hold front, k3, k3 from CN';
-      if(construction==='raglan'||construction==='drop') base+=' &nbsp;·&nbsp; <b>GSR / DS</b> German Short Row / double stitch';
+      if(construction==='raglan') base+=' &nbsp;·&nbsp; <b>GSR / DS</b> German Short Row / double stitch';
       return base;
     }
 
@@ -476,53 +471,31 @@
         var sleevePickUp=puArm, sleeveTotal=sleevePickUp*2;
         var sleeveTopSRreps=Math.round(Math.min(Math.max(finishedIn*2.54/17,4),7));
         html+='<div class="rr-title">Back — cast on at shoulder line, work downward</div>';
-        html+=rrRow('Note','<em>top-down construction. The back is cast on at shoulder height and worked downward. The cast-on edge becomes the shoulder line.</em>');
         html+=rrRow('Setup','Cast on <code>'+back+' sts</code> on main needle. First row is WS.');
         html+=rrRow('Work flat','Work '+stAbbr+' until back measures <code>'+backDepthDisp+'</code>. End WS. Leave on hold.');
         html+='<div class="rr-title">Left shoulder</div>';
-        html+=rrRow('Pick up','RS facing, pick up outermost left <code>'+shldSts+' sts</code> along cast-on edge (between sts, not in them; direction: neck toward shoulder). Use short yarn end to pick up; slide sts back to knit from RS with live yarn.');
-        html+=rrRow('Neck BO Row 1 (RS)','Bind off 1 st (neck edge), k5, turn. <em>('+(shldSts-1)+' sts)</em>');
-        html+=rrRow('Row 2 (WS)','Purl to end.');
-        html+=rrRow('Neck BO Row 3 (RS)','Bind off 1 st, k7, turn. <em>('+(shldSts-2)+' sts)</em>');
-        html+=rrRow('Row 4 (WS)','Purl to end.');
-        html+=rrRow('Neck BO Row 5 (RS)','Bind off 1 st, k9, turn. <em>('+(shldSts-3)+' sts)</em>');
-        html+=rrRow('Row 6 (WS)','Purl to end. Next row is RS.');
-        html+=rrRow('Short rows (RS)','<code>* K to 3 sts past last turn, turn, p to end *</code> — repeat <code>'+srTurns+' times</code> using GSR. Each turn steps 3 sts further toward shoulder edge.');
-        html+=rrRow('Work flat','Work 6–8 rows '+stAbbr+' across all sts. End RS.');
-        html+=rrRow('Neck increases','<code>* K1, M1L (pick up loop from front, k tbl), k to end. P all sts next row. *</code> Repeat <code>8 times</code>. Break yarn. Leave on hold.');
+        html+=rrRow('Pick up','RS facing, pick up outermost left <code>'+shldSts+' sts</code> from cast-on edge.');
+        html+=rrRow('Neck BO rows','Bind off 1 st at neck edge on RS rows 1, 3, and 5. Purl WS rows straight. <em>('+(shldSts-3)+' sts rem)</em>');
+        html+=rrRow('Short rows','<code>* K to 3 sts past last turn, turn, p to end *</code> — repeat <code>'+srTurns+' times</code> using GSR.');
+        html+=rrRow('Neck increases','<code>* K1, M1L, k to end. P all on next row. *</code> Repeat 8 times. Break yarn. Hold.');
         html+='<div class="rr-title">Right shoulder — mirror of left</div>';
-        html+=rrRow('Pick up','RS facing, pick up outermost right <code>'+shldSts+' sts</code> along cast-on edge using live yarn. First row is WS.');
-        html+=rrRow('Neck BO Row 1 (WS)','Bind off 1 st (neck edge), p5, turn. <em>('+(shldSts-1)+' sts)</em>');
-        html+=rrRow('Row 2 (RS)','Knit to end.');
-        html+=rrRow('Neck BO Row 3 (WS)','Bind off 1 st, p7, turn. <em>('+(shldSts-2)+' sts)</em>');
-        html+=rrRow('Row 4 (RS)','Knit to end.');
-        html+=rrRow('Neck BO Row 5 (WS)','Bind off 1 st, p9, turn. <em>('+(shldSts-3)+' sts)</em>');
-        html+=rrRow('Row 6 (RS)','Knit to end. Next row is WS.');
-        html+=rrRow('Short rows (WS)','<code>* P to 3 sts past last turn, turn, k to end *</code> — repeat <code>'+srTurns+' times</code> using GSR.');
-        html+=rrRow('Work flat','Work 6–8 rows '+stAbbr+' across all sts. End WS.');
-        html+=rrRow('Neck increases','<code>* P1, M1R purlwise (pick up loop from back, p), p to end. K all sts next row. *</code> Repeat <code>8 times</code>.');
+        html+=rrRow('Work','Mirror left shoulder with WS bind-off rows and WS short rows. Hold.');
         html+='<div class="rr-title">Front</div>';
-        html+=rrRow('Join','Cast on <code>'+neckCastOn+' neck sts</code> in continuation of right shoulder sts. Knit across held left shoulder sts onto same needle. <em>Total front: <code>'+front+' sts</code>.</em>');
-        html+=rrRow('Work flat','Work '+stAbbr+' until front measures <code>'+backDepthDisp+'</code> (same row count as back). End WS.');
+        html+=rrRow('Join','Cast on <code>'+neckCastOn+' neck sts</code>, knit across held shoulder sts. Total: <code>'+front+' sts</code>.');
+        html+=rrRow('Work flat','Work '+stAbbr+' until front measures <code>'+backDepthDisp+'</code>. End WS.');
         html+='<div class="rr-title">Body — joined in the round</div>';
-        html+=rrRow('Join','RS facing: knit across front, pm (side), knit across back RS facing, pm (side), join in round. BOR at right underarm. <em><code>'+totalSts+' sts.</code></em>');
-        html+=rrRow('Work','Work '+stAbbr+' in the round.');
-        html+=rrRow('Waist dec','<code>K1, k2tog, k to 3 sts before marker, k2tog tbl, k1, sm, k1, k2tog, k to 3 sts before marker, k2tog tbl, k1.</code> <em>(−4 sts)</em>');
-        html+=rrRow('Repeat','Work waist dec every <code>'+waistIntervalDisp+'</code> a total of <code>'+waistDecTimes+' times</code>. <em>('+afterWaistDec+' sts rem)</em>');
-        html+=rrRow('Length','Continue until body measures <code>'+bodyLenDisp+'</code> from bottom of armhole. Try on before rib to check length.');
-        html+=rrRow('Hem','Change to '+sn+'. Work <code>(k1, p1)</code> rib for '+ribLen+'. Bind off loosely in rib.');
-        html+='<div class="rr-title">Sleeves — picked up from armhole, top-down with shoulder short rows</div>';
-        html+=rrRow('Pick up','RS facing, pick up <code>'+sleevePickUp+' sts</code> along front armhole + <code>'+sleevePickUp+' sts</code> along back armhole (approx. 2 sts per 3 rows). Place shoulder marker at top and BOR marker at underarm. <em>'+sleeveTotal+' sts total.</em>');
-        html+=rrRow('SR setup','K to 6 sts past shoulder marker, turn. P to 6 sts past shoulder marker, turn.');
-        html+=rrRow('SR repeat','<code>* K to 6 sts past last RS turn, turn. P to 6 sts past last WS turn, turn. *</code> Repeat <code>'+sleeveTopSRreps+' times</code>. K to BOR. Remove shoulder marker.');
-        html+=rrRow('Work','Knit '+stAbbr+' in the round.');
-        html+=rrRow('Dec Rnd','<code>K2tog after first st, k to last 2 sts, k2tog tbl.</code> <em>(−2 sts)</em>');
-        html+=rrRow('Repeat','Dec every 5th–7th rnd until <code>'+cuffSts+' sts</code> rem and sleeve measures '+sLen+'.');
-        html+=rrRow('Cuff','Change to '+sn+'. Work <code>(k1, p1)</code> rib for '+ribLen+'. Bind off loosely in rib.');
-        html+=rrRow('Second sleeve','Work identically to first.');
+        html+=rrRow('Join','Knit across front, pm, knit across back RS facing, pm, join in round. BOR at right underarm. <code>'+totalSts+' sts</code>.');
+        html+=rrRow('Waist dec','<code>K1, k2tog, k to 3 sts before marker, k2tog tbl, k1, sm</code> — both sides. <em>(−4 sts)</em>');
+        html+=rrRow('Repeat','Dec every <code>'+waistIntervalDisp+'</code>, <code>'+waistDecTimes+' times</code>. <em>('+afterWaistDec+' sts rem)</em>');
+        html+=rrRow('Length','Continue until body measures <code>'+bodyLenDisp+'</code> from armhole.');
+        html+=rrRow('Hem','Change to '+sn+'. Work <code>(k1, p1)</code> rib for '+ribLen+'. Bind off loosely.');
+        html+='<div class="rr-title">Sleeves — top-down from armhole</div>';
+        html+=rrRow('Pick up','Pick up <code>'+sleevePickUp+' sts</code> front + <code>'+sleevePickUp+' sts</code> back. <em>'+sleeveTotal+' sts total.</em>');
+        html+=rrRow('Shoulder SR','GSR short rows: k to 6 sts past shoulder marker, turn; p to 6 sts past, turn. Repeat <code>'+sleeveTopSRreps+' times</code>. K to BOR.');
+        html+=rrRow('Dec Rnd','<code>K2tog, k to last 2 sts, k2tog tbl.</code> Every 5th–7th rnd to cuff.');
+        html+=rrRow('Cuff','Change to '+sn+'. Work <code>(k1, p1)</code> rib for '+ribLen+'. Bind off loosely.');
         html+='<div class="rr-title">Neckband</div>';
-        html+=rrRow('Pick up','RS facing on '+sn+', pick up <code>'+puNeck+' sts</code> around neck opening. Join in round.');
-        html+=rrRow('Work','<code>(k1, p1)</code> rib for '+neckRib+'. Bind off loosely in rib.');
+        html+=rrRow('Pick up','Pick up <code>'+puNeck+' sts</code> around neck on '+sn+'. Work <code>(k1, p1)</code> rib for '+neckRib+'. Bind off loosely.');
 
       } else {
         html+='<div class="rr-title">Back — worked flat, bottom up</div>';
@@ -530,7 +503,7 @@
         html+=rrRow('Hem','Work <code>(k1, p1)</code> rib for '+ribLen+'.');
         html+=rrRow('Body','Switch to main needle. Work '+stAbbr+' to armhole (~'+bodyLen+'). End WS.');
         html+=rrRow('Armhole','Bind off <code>'+armBO+' sts</code> each side. Dec 1 ea end every RS row × 3–5.');
-        html+=rrRow('Shoulders','Bind off <code>'+fShldBO+' sts</code> each side. Hold centre <code>'+fNeckHold+' sts</code>.');
+        html+=rrRow('Shoulders','Bind off <code>'+fShldBO+' sts</code> each side. Hold centre <code>'+fNeckHold+'</code> neck sts.');
         html+='<div class="rr-title">Front — worked flat, bottom up</div>';
         html+=rrRow('Body','As back to armhole. Shape armhole same way.');
         html+=rrRow('Neckline','Bind off centre <code>'+fCentreBO+' sts</code>. Dec 1 ea neck edge every RS × 3–4.');
@@ -590,7 +563,7 @@
         var dsBodyLenCm=Math.round(Math.min(Math.max(finishedIn*2.54*0.45,22),28));
         var dsBodyLenDisp=isIn?Math.round(dsBodyLenCm/2.54*10)/10+' in':dsBodyLenCm+' cm';
         var dsWaistDec=finishedIn*2.54>110?5:4;
-        constructionHTML='<strong>Drop shoulder — top-down, back first, body joined in the round</strong><br><br>1. <strong>Back:</strong> Cast on <strong>'+back+' sts</strong> at shoulder line. Work flat for <strong>'+dsBackDepthDisp+'</strong> (armhole depth). Leave on hold.<br><br>2. <strong>Shoulders:</strong> Pick up <strong>'+dsShldSts+' sts</strong> each side from cast-on edge. Shape each shoulder with 3 neck bind-off rows + GSR short rows ('+Math.round(Math.min(Math.max(dsShldSts/4.5,9),12))+' turns) + 8 neck increase rows.<br><br>3. <strong>Front:</strong> Cast on <strong>'+dsNeckCO+' neck sts</strong> between shoulder pieces. Work flat for <strong>'+dsBackDepthDisp+'</strong>.<br><br>4. <strong>Body:</strong> Join front + back in the round (<strong>'+totalSts+' sts</strong>). Waist decs (4 sts × '+dsWaistDec+') then straight to hem rib (<strong>'+dsBodyLenDisp+'</strong> from armhole).<br><br>5. <strong>Sleeves:</strong> Pick up around armhole. GSR short rows at shoulder top, then top-down in the round with decreases to cuff rib.';
+        constructionHTML='<strong>Drop shoulder — top-down, back first, body joined in the round</strong><br><br>1. <strong>Back:</strong> Cast on <strong>'+back+' sts</strong> at shoulder. Work flat for <strong>'+dsBackDepthDisp+'</strong>.<br><br>2. <strong>Shoulders:</strong> Pick up <strong>'+dsShldSts+' sts</strong> each side. Shape with neck bind-off rows + GSR + 8 increase rows.<br><br>3. <strong>Front:</strong> Cast on <strong>'+dsNeckCO+' neck sts</strong>. Work flat for <strong>'+dsBackDepthDisp+'</strong>.<br><br>4. <strong>Body:</strong> Join in the round (<strong>'+totalSts+' sts</strong>). Waist decs × '+dsWaistDec+' then hem rib (<strong>'+dsBodyLenDisp+'</strong> from armhole).<br><br>5. <strong>Sleeves:</strong> Pick up around armhole, GSR cap short rows, top-down to cuff rib.';
       } else if(selectedConstruction==='raglan'){
         var s4=4, wk=totalSts-s4;
         front=Math.round(wk*0.25); back=Math.round(wk*0.25); if(back%2!==0)back++;
@@ -601,10 +574,10 @@
         var finishedCmConst=finishedIn*2.54, extraBodyRndsConst=0;
         if(finishedCmConst>130)extraBodyRndsConst=10; else if(finishedCmConst>120)extraBodyRndsConst=7; else if(finishedCmConst>110)extraBodyRndsConst=2;
         var bodyOnlyNote=extraBodyRndsConst>0?'<br><br>3b. Work <strong>'+extraBodyRndsConst+' body-only increase rounds</strong>. +<strong>'+(extraBodyRndsConst*4)+' body sts</strong>.':'';
-        constructionHTML='<strong>Raglan — top-down, seamless, worked in the round</strong><br><br>1. Cast on <strong>'+ragNeck2+' sts</strong> for 4 cm neckband rib. Division: right back <strong>'+Math.round(back/2)+' sts</strong> · raglan st · right sleeve <strong>'+sleeveEach+' sts</strong> · raglan st · front <strong>'+front+' sts</strong> · raglan st · left sleeve <strong>'+sleeveEach+' sts</strong> · raglan st · left back <strong>'+Math.round(back/2)+' sts</strong>. BOR at centre back.<br><br>2. Work <strong>5 GSR short row pairs</strong> with raglan increases within each pass. Final pair is a full RS knit-across to BOR.<br><br>3. Inc Rnd (+8 sts) + Plain Rnd — alternate until yoke measures 18–23 cm / 7–9 in.'+bodyOnlyNote+'<br><br>4. Divide: hold <strong>'+sleeveEach+' sleeve sts</strong> each side, cast on <strong>'+armBO+' underarm sts</strong> each side.<br><br>5. Work body to hem rib; work each sleeve top-down to cuff rib.';
+        constructionHTML='<strong>Raglan — top-down, seamless, worked in the round</strong><br><br>1. Cast on <strong>'+ragNeck2+' sts</strong> for neckband rib. Division: right back <strong>'+Math.round(back/2)+' sts</strong> · raglan st · right sleeve <strong>'+sleeveEach+' sts</strong> · raglan st · front <strong>'+front+' sts</strong> · raglan st · left sleeve <strong>'+sleeveEach+' sts</strong> · raglan st · left back <strong>'+Math.round(back/2)+' sts</strong>.<br><br>2. Work <strong>5 GSR short row pairs</strong> with raglan increases within each pass.<br><br>3. Inc Rnd (+8 sts) + Plain Rnd — alternate until yoke measures 18–23 cm / 7–9 in.'+bodyOnlyNote+'<br><br>4. Divide: hold <strong>'+sleeveEach+' sleeve sts</strong> each side, cast on <strong>'+armBO+' underarm sts</strong>.<br><br>5. Work body to hem rib; work each sleeve top-down to cuff rib.';
       } else {
         front=Math.round(totalSts/2); back=totalSts-front; sleeveEach=null;
-        constructionHTML='<strong>Set-in sleeves — worked flat and seamed</strong><br><br>1. <strong>Back:</strong> Cast on <strong>'+back+' sts</strong>. Rib hem, body to armhole. Bind off <strong>'+armBO+' sts</strong> each side; dec for armhole shaping.<br><br>2. <strong>Front:</strong> Cast on <strong>'+front+' sts</strong>. Same as back. Bind off centre <strong>'+Math.round(front*0.2)+' sts</strong> for neck; dec each neck edge 3–4 RS rows.<br><br>3. <strong>Sleeves:</strong> Cast on <strong>'+cuffSts+' sts</strong>. Rib hem, inc body, shape cap (BO <strong>'+armBO+' sts</strong> each side).<br><br>4. Seam shoulders, set in sleeves, seam sides. Pick up <strong>'+Math.round(gaugePerInch*22)+' neck sts</strong> and rib.';
+        constructionHTML='<strong>Set-in sleeves — worked flat and seamed</strong><br><br>1. <strong>Back:</strong> Cast on <strong>'+back+' sts</strong>. Rib hem, body to armhole. Bind off <strong>'+armBO+' sts</strong> each side.<br><br>2. <strong>Front:</strong> Cast on <strong>'+front+' sts</strong>. Bind off centre <strong>'+Math.round(front*0.2)+' sts</strong> for neck.<br><br>3. <strong>Sleeves:</strong> Cast on <strong>'+cuffSts+' sts</strong>. Rib, inc body, shape cap.<br><br>4. Seam all pieces. Pick up <strong>'+Math.round(gaugePerInch*22)+' neck sts</strong> and rib.';
       }
 
       var stitchNoteMap={garter:'Work in <strong>garter stitch</strong>: knit every row (flat) or alternate k/p rounds (in the round).',ribbed:'Work in <strong>1×1 rib</strong>: (k1, p1).',cable:'Work in <strong>cable pattern (C6F)</strong>. '+extraCable+' extra sts added for cable draw-in (~10%).'};
