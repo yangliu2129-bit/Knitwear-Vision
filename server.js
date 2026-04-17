@@ -1,38 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path'); // ✅ ADD THIS
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
 
+// ========== MIDDLEWARE SETUP (MUST BE FIRST) ==========
 app.use(cors());
-app.use(express.json());
-
-// ✅ SERVE HTML FILES
-app.use(express.static(__dirname));
-
-// ✅ API ROUTE
-app.post('/api/analyze-sweater', async (req, res) => {
-  console.log("API HIT");
-  res.json({ ok: true }); // temporary test
-});
-
-// ❗ KEEP THIS LAST
-app.use((req, res) => {
-  res.status(404).json({ error: 'Not found' });
-});
-
-
-
-// Middleware
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(cors());
 
-// Serve static files (your HTML, CSS, JS)
+// Serve static files (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname)));
 
-// Health check endpoint
+// ========== API ROUTES ==========
+
+// Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
@@ -139,7 +122,9 @@ Always provide a value — if uncertain pick the most likely option and lower th
   }
 });
 
-// 404 fallback
+// ========== ERROR HANDLING (MUST BE LAST) ==========
+
+// 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
@@ -150,7 +135,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
+// ========== START SERVER ==========
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Sweater Analyser API running on port ${PORT}`);
+  console.log(`Health check: http://localhost:${PORT}/api/health`);
 });
