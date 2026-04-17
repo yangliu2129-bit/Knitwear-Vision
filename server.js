@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -8,8 +7,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ ADD THIS LINE
-app.use(express.static(path.join(__dirname)));
+// ✅ SERVE HTML FILES
+app.use(express.static(__dirname));
+
+// ✅ API ROUTE
+app.post('/api/analyze-sweater', async (req, res) => {
+  console.log("API HIT");
+  res.json({ ok: true }); // temporary test
+});
+
+// ❗ KEEP THIS LAST
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
 
 // Middleware
 app.use(express.json({ limit: '50mb' }));
