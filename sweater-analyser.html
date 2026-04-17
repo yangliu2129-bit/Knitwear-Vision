@@ -511,8 +511,8 @@ Detection guidance:
 
 Always provide a value — if uncertain pick the most likely option and lower the confidence score.`;
 
- try {
-  const res = await fetch('http://localhost:3000/api/analyze-sweater', {
+    try {
+  const res = await fetch('/api/analyze-sweater', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -532,7 +532,7 @@ Always provide a value — if uncertain pick the most likely option and lower th
   const result = await res.json();
   renderResults(result);
 
-} catch (err) {   // ← THIS closing brace was missing
+} catch (err) {
   clearInterval(msgInterval);
   document.getElementById('loadingWrap').classList.remove('visible');
   analyseBtn.disabled = false;
