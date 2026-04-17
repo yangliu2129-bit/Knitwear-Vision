@@ -17,26 +17,36 @@ app.use(express.static(path.join(__dirname)));
 
 // Health check
 app.get('/api/health', (req, res) => {
+  console.log('✓ Health check requested');
   res.json({ status: 'ok' });
 });
 
 // Main sweater analysis endpoint
 app.post('/api/analyze-sweater', async (req, res) => {
+  console.log('\n========== SWEATER ANALYSIS REQUEST ==========');
+  console.log('📩 Request received');
+  
   const { imageBase64, imageMimeType } = req.body;
 
   // Validation
   if (!imageBase64) {
+    console.error('❌ Missing imageBase64');
     return res.status(400).json({ error: 'Missing imageBase64' });
   }
 
   if (!imageMimeType) {
+    console.error('❌ Missing imageMimeType');
     return res.status(400).json({ error: 'Missing imageMimeType' });
   }
 
+  console.log(`✓ Image received: ${imageMimeType}, ${imageBase64.length} characters`);
+
   if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('ANTHROPIC_API_KEY is not set');
-    return res.status(500).json({ error: 'Server configuration error' });
+    console.error('❌ ANTHROPIC_API_KEY is not set in .env file');
+    return res.status(500).json({ error: 'Server configuration error: missing API key' });
   }
+
+  console.log('✓ API key found');
 
   try {
     const prompt = `You are an expert knitting pattern analyst. Examine this sweater image closely and return ONLY a valid JSON object — no preamble, no markdown fences, no extra text.
@@ -66,6 +76,8 @@ Detection guidance:
 
 Always provide a value — if uncertain pick the most likely option and lower the confidence score.`;
 
+    console.log('📤 Calling Claude API...');
+    
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -95,9 +107,12 @@ Always provide a value — if uncertain pick the most likely option and lower th
       })
     });
 
+    console.log(`📥 Claude API response status: ${response.status}`);
+
     if (!response.ok) {
       const error = await response.json().catch(() => ({}));
       const errorMsg = error.error?.message || `API error ${response.status}`;
+      console.error(`❌ API Error: ${errorMsg}`);
       
       // Handle rate limiting gracefully
       if (response.status === 429) {
@@ -111,13 +126,25 @@ Always provide a value — if uncertain pick the most likely option and lower th
     }
 
     const data = await response.json();
+    console.log('✓ Claude API response parsed');
+    
     const raw = data.content.map(b => b.text || '').join('');
-    const result = JSON.parse(raw.replace(/```json|```/g, '').trim());
+    console.log(`📝 Raw response length: ${raw.length} characters`);
+    console.log(`📝 Raw response preview: ${raw.substring(0, 200)}...`);
+
+    // Clean up JSON
+    const cleanJson = raw.replace(/```json|```/g, '').trim();
+    console.log(`📝 Cleaned JSON preview: ${cleanJson.substring(0, 200)}...`);
+
+    const result = JSON.parse(cleanJson);
+    console.log('✓ JSON parsed successfully');
+    console.log(`✓ Analysis complete: ${result.construction?.value}, ${result.style?.value}`);
 
     res.json(result);
 
   } catch (error) {
-    console.error('Analysis error:', error);
+    console.error(`❌ Analysis error: ${error.message}`);
+    console.error(`Full error: ${error.stack}`);
     res.status(500).json({ error: error.message || 'Analysis failed' });
   }
 });
@@ -126,18 +153,21 @@ Always provide a value — if uncertain pick the most likely option and lower th
 
 // 404 handler
 app.use((req, res) => {
+  console.log(`❌ 404: ${req.method} ${req.path}`);
   res.status(404).json({ error: 'Not found' });
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error('Server error:', err);
+  console.error(`❌ Server error: ${err.message}`);
   res.status(500).json({ error: 'Internal server error' });
 });
 
 // ========== START SERVER ==========
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Sweater Analyser API running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/api/health`);
+  console.log(`\n🚀 Sweater Analyser API running on port ${PORT}`);
+  console.log(`📍 Health check: http://localhost:${PORT}/api/health`);
+  console.log(`📍 Analyze endpoint: POST http://localhost:${PORT}/api/analyze-sweater`);
+  console.log(`🔑 API key set: ${process.env.ANTHROPIC_API_KEY ? '✓ Yes' : '❌ No'}\n`);
 });
